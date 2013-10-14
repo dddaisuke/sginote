@@ -1,4 +1,6 @@
 Sginote::Application.routes.draw do
+  resources :notebooks
+
     namespace :mercury do
       resources :images
     end

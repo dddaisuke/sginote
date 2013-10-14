@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @notebook.title
+%p
+  %b User:
+  = @notebook.user_id
+%p
+  %b Notes count:
+  = @notebook.notes_count
+%p
+  %b Published at:
+  = @notebook.published_at
+
+= link_to 'Edit', edit_notebook_path(@notebook)
+\|
+= link_to 'Back', notebooks_path

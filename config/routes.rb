@@ -1,4 +1,6 @@
 Sginote::Application.routes.draw do
+  resources :notes
+
   resources :notebooks
 
     namespace :mercury do

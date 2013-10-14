@@ -13,6 +13,14 @@ GIT
       jquery-rails (>= 2.0.2)
 
 GIT
+  remote: git://github.com/jejacks0n/mercury.git
+  revision: 9b722b17060b728db74cec57a7d46fdd8df25d46
+  specs:
+    mercury-rails (0.9.0)
+      coffee-rails (>= 3.2.2)
+      railties (>= 3.0)
+
+GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 70e6e63b0ee15962b623b2b04c87c35b0010e5c6
   specs:
@@ -210,6 +218,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   less-rails
+  mercury-rails!
   mysql2
   omniauth-google-oauth2
   pry

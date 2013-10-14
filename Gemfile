@@ -18,7 +18,8 @@ gem 'base58'
 gem 'omniauth-google-oauth2'
 gem 'therubyracer'
 gem 'less-rails'
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails'
+gem 'mercury-rails', github: 'jejacks0n/mercury'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

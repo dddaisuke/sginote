@@ -7,5 +7,5 @@ Sginote::Application.routes.draw do
   resources :notes
   resources :notebooks
 
-  root 'top#index'
+  root 'notebooks#index'
 end

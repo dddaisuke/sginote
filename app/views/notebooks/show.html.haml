@@ -16,3 +16,10 @@
 = link_to 'Edit', edit_notebook_path(@notebook)
 \|
 = link_to 'Back', notebooks_path
+
+- @notes.each do |note|
+  = link_to '/editor' + note_path(note) do
+    .note
+      = note.title
+%br
+= link_to '新しいノートを作成', new_note_path

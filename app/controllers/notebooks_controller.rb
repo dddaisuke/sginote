@@ -1,28 +1,22 @@
 class NotebooksController < ApplicationController
   before_action :set_notebook, only: [:show, :edit, :update, :destroy]
 
-  # GET /notebooks
-  # GET /notebooks.json
   def index
     @notebooks = Notebook.all
   end
 
-  # GET /notebooks/1
-  # GET /notebooks/1.json
   def show
+    notebook = Notebook.find(params[:id])
+    @notes = notebook.notes
   end
 
-  # GET /notebooks/new
   def new
     @notebook = Notebook.new
   end
 
-  # GET /notebooks/1/edit
   def edit
   end
 
-  # POST /notebooks
-  # POST /notebooks.json
   def create
     @notebook = Notebook.new(notebook_params)
 
@@ -37,8 +31,6 @@ class NotebooksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /notebooks/1
-  # PATCH/PUT /notebooks/1.json
   def update
     respond_to do |format|
       if @notebook.update(notebook_params)
@@ -51,8 +43,6 @@ class NotebooksController < ApplicationController
     end
   end
 
-  # DELETE /notebooks/1
-  # DELETE /notebooks/1.json
   def destroy
     @notebook.destroy
     respond_to do |format|
@@ -69,6 +59,6 @@ class NotebooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def notebook_params
-      params.require(:notebook).permit(:title, :user_id, :notes_count, :published_at)
+      params.require(:notebook).permit(:title, :user_id)
     end
 end

@@ -11,15 +11,11 @@
     %th
 
   - @notebooks.each do |notebook|
-    %tr
-      %td= notebook.title
-      %td= notebook.user_id
-      %td= notebook.notes_count
-      %td= notebook.published_at
-      %td= link_to 'Show', notebook
-      %td= link_to 'Edit', edit_notebook_path(notebook)
-      %td= link_to 'Destroy', notebook, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+    = link_to notebook do
+      .notebook
+        = notebook.title
+        #{notebook.notes_count}個のノート
+        / %td= link_to 'Destroy', notebook, :method => :delete, :data => { :confirm => 'Are you sure?' }
 %br
 
 = link_to 'New Notebook', new_notebook_path

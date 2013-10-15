@@ -2,10 +2,12 @@
 
 %p
   %b Title:
-  = @note.title
+  %span#note_title{:'data-mercury' => 'full'}
+    = @note.title
 %p
   %b Body:
-  = @note.body
+  %span#note_body{:'data-mercury' => 'full'}
+    = @note.body
 %p
   %b User:
   = @note.user_id
@@ -13,6 +15,6 @@
   %b Published at:
   = @note.published_at
 
-= link_to 'Edit', edit_note_path(@note)
+= link_to 'Edit', '/editor' + request.path
 \|
 = link_to 'Back', notes_path

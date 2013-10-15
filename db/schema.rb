@@ -25,15 +25,16 @@ ActiveRecord::Schema.define(version: 20131014231444) do
   create_table "notebooks", force: true do |t|
     t.string   "title"
     t.integer  "user_id"
-    t.integer  "notes_count"
+    t.integer  "notes_count",  default: 0
     t.datetime "published_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "notes", force: true do |t|
+    t.integer  "notebook_id"
     t.string   "title"
-    t.string   "body"
+    t.text     "body"
     t.integer  "user_id"
     t.datetime "published_at"
     t.datetime "created_at"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131014231444) do
+ActiveRecord::Schema.define(version: 20131026040115) do
 
   create_table "mercury_images", force: true do |t|
     t.string   "image_file_name"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 20131014231444) do
     t.text     "body"
     t.integer  "user_id"
     t.datetime "published_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

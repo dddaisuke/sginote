@@ -2,12 +2,11 @@ class NotebooksController < ApplicationController
   before_action :set_notebook, only: [:show, :edit, :update, :destroy]
 
   def index
-    @notebooks = Notebook.all
+    @notebooks = Notebook.all.order("updated_at desc")
   end
 
   def show
-    notebook = Notebook.find(params[:id])
-    @notes = notebook.notes
+    @notes = Note.where(notebook_id: 1).order('updated_at desc')
   end
 
   def new
@@ -18,11 +17,12 @@ class NotebooksController < ApplicationController
   end
 
   def create
+    notebook_params.merge(user_id: 1)
     @notebook = Notebook.new(notebook_params)
 
     respond_to do |format|
       if @notebook.save
-        format.html { redirect_to @notebook, notice: 'Notebook was successfully created.' }
+        format.html { redirect_to notebooks_path, notice: 'Notebook was successfully created.' }
         format.json { render action: 'show', status: :created, location: @notebook }
       else
         format.html { render action: 'new' }

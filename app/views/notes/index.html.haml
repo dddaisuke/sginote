@@ -13,7 +13,7 @@
   - @notes.each do |note|
     %tr
       %td= note.title
-      %td= note.body
+      %td= strip_tags(note.body)
       %td= note.user_id
       %td= note.published_at
       %td= link_to 'Show', note

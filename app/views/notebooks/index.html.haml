@@ -1,21 +1,13 @@
-%h1 Listing notebooks
+%h1 ノートブック
 
-%table
-  %tr
-    %th Title
-    %th User
-    %th Notes count
-    %th Published at
-    %th
-    %th
-    %th
+.add_notebook
+  = link_to '新しいノートブックを追加 ', new_notebook_path
 
-  - @notebooks.each do |notebook|
-    = link_to notebook do
-      .notebook
+- @notebooks.each do |notebook|
+  = link_to root_path do
+    .notebook
+      .title
         = notebook.title
+      .note_count
         #{notebook.notes_count}個のノート
-        / %td= link_to 'Destroy', notebook, :method => :delete, :data => { :confirm => 'Are you sure?' }
-%br
-
-= link_to 'New Notebook', new_notebook_path
+      / %td= link_to 'Destroy', notebook, :method => :delete, :data => { :confirm => 'Are you sure?' }

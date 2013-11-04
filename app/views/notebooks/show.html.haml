@@ -1,25 +1,10 @@
-%p#notice= notice
 
-%p
-  %b Title:
-  = @notebook.title
-%p
-  %b User:
-  = @notebook.user_id
-%p
-  %b Notes count:
-  = @notebook.notes_count
-%p
-  %b Published at:
-  = @notebook.published_at
-
-= link_to 'Edit', edit_notebook_path(@notebook)
-\|
-= link_to 'Back', notebooks_path
+= link_to 'このノートブックを編集する', edit_notebook_path(@notebook)
 
 - @notes.each do |note|
-  = link_to '/editor' + note_path(note) do
-    .note
-      = note.title
-%br
-= link_to '新しいノートを作成', new_note_path
+  .note{ id: "note_#{note.id}" }
+    = link_to '/editor' + note_path(note), class: 'note_link' do
+      .title
+        = note.title
+    .body
+      = strip_tags(note.body)[0..100]

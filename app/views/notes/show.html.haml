@@ -1,20 +1,10 @@
 %p#notice= notice
 
 %p
-  %b Title:
-  %span#note_title{:'data-mercury' => 'full'}
+  %b タイトル
+  #note_title{ contenteditable: 'true', :'data-mercury' => 'full' }
     = @note.title
 %p
-  %b Body:
-  %span#note_body{:'data-mercury' => 'full'}
-    = @note.body
-%p
-  %b User:
-  = @note.user_id
-%p
-  %b Published at:
-  = @note.published_at
-
-= link_to 'Edit', '/editor' + request.path
-\|
-= link_to 'Back', notes_path
+  %b 本文
+  #note_body{ contenteditable: 'true', :'data-mercury' => 'full' }
+    = strip_tags(@note.body)

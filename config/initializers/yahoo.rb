@@ -1,0 +1,3 @@
+module Yahoo
+  APPID = ''
+end

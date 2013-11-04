@@ -4,8 +4,13 @@ Sginote::Application.routes.draw do
     resources :images
   end
 
-  resources :notes
+  resources :notes do
+    collection do
+      get 'find_word'
+      get 'morpheme'
+    end
+  end
   resources :notebooks
 
-  root 'notebooks#index'
+  root 'top#index'
 end

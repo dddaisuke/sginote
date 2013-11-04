@@ -1,5 +1,9 @@
-= link_to '➕ノートブックの作成', new_notebook_path
+= link_to '新しいノートを作成', new_note_path
+.note_list
+  %iframe#note_select_menu{ src: notebook_path(id: 1) }
+.note_show
+  %iframe#note_editor{ src: '/editor' + note_path(id: @note_id) }
+#search_list
+  = link_to '#', class: 'search' do
+    自動で調べる
 
-index
-%i.icon-android
-%img{src: "assets/grey_wash_wall.png"}

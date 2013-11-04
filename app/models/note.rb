@@ -5,7 +5,7 @@ class Note < ActiveRecord::Base
   private
 
   def update_counter_cache
-    count = notebook.notes.count
+    count = self.notebook.notes.count
     notebook.update_attributes(notes_count: count)
   end
 end
